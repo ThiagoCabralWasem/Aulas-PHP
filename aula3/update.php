@@ -2,15 +2,14 @@
 include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $id = $_POST['id'];
   $name = $_POST['name'];
   $email = $_POST['email'];
 
-  $stmt = $conn->prepare("UPDATE user SET name=?, email=? WHERE id=?");
-  $stmt->bind_param("ssi", $name, $email, $id);
+  $stmt = $conn->prepare("UPDATE user SET name=? WHERE email=?");
+  $stmt->bind_param("ss", $name, $email);
 
   if ($stmt->execute() === TRUE) {
-    echo "Registro atualizado com sucesso!";
+    echo "Conta atualizada com sucesso!";
   } else {
     echo "Erro ao atualizar registro: " . $stmt->error;
   }
@@ -30,8 +29,6 @@ $conn->close();
 </head>
 <body>
   <form method="post" action="update.php">
-    <label for="id">ID</label>  
-    <input type="text" name="id" required>
     <label for="name">Nome</label>  
     <input type="text" name="name" required>
     <label for="email">Email</label>
