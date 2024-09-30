@@ -1,14 +1,33 @@
 <?php
+<<<<<<< HEAD
+class Database {
+    $servername = "localhost";
+    $username = "root";
+    $password = "root";
+    $dbname = "bloco-de-notas";
+    
+    private $conn;
+
+
+    public function __construct() {
+        $this->conn = new mysqli($servername, $username, $password, $dbname);
+        if ($this->conn->connect_error) {
+            die("Falha na conexão: " . htmlspecialchars($this->conn->connect_error));
+        }
+        
+        $this->conn->set_charset("utf8mb4");
+    }
+    
+    public function create($arr, $table) {
+        foreach $arr
+    }
+=======
 $servername = "localhost";
 $username = "root";
 $password = "root";
 $dbname = "blocodenotas";
+>>>>>>> 59f72f333ca48afb77254c7fa441279af7c2a797
 
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Falha na conexão: " . htmlspecialchars($conn->connect_error));
 }
-
-$conn->set_charset("utf8mb4");
 ?>
