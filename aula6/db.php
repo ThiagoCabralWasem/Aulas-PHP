@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 class Database {
     $servername = "localhost";
     $username = "root";
@@ -20,6 +21,12 @@ class Database {
     public function create($arr, $table) {
         foreach $arr
     }
+=======
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "blocodenotas";
+>>>>>>> 59f72f333ca48afb77254c7fa441279af7c2a797
 
 
 }
