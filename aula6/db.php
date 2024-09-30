@@ -15,14 +15,14 @@ class Database {
         return $this->conn;
     }
 
-    public function create($arr, $table) {
+    public function create($arr, $id, $table) {
         $raw = "INSERT INTO $table (";
         $keys = array_keys($arr);
         $values = array_values($arr);
         $raw_names = implode(", ", $keys);
-        $raw_values = implode(", ", array_map(fn($val) => "'$val'", $values));
-        $raw .= "$raw_names) VALUES ($raw_values);";
-        return $raw;
+        $raw_values = implode("', '", $values);
+        $raw .= "$raw_names, fk_categoria) VALUES ('$raw_values', $id);";
+        $this->conn->query($raw);
     }
 
     public function read($table) {
